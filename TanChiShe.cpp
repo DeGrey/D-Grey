@@ -28,8 +28,6 @@ void food_prod()
 
 int main()
 {
-
-
 	char con; 
 	Cursor cur;
 
@@ -39,8 +37,6 @@ int main()
 	SetConsoleScreenBufferSize(cur.hout, cur.coord);
 
 	Wall.IniWall(cur);
-
-
 	cur.SetCursor(0, 0);
 
 	con = _getch();
