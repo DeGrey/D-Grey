@@ -53,7 +53,7 @@ int main()
 	th2.join();
 
 	cur.SetCursor(94, 45);
-	cout << "Score£º" << Wall.socre << endl;
+	cout << "Score:" << Wall.socre << endl;
 	cur.SetCursor(0, 47);
 
 
