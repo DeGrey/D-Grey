@@ -31,7 +31,7 @@ int main()
 	char con; 
 	Cursor cur;
 
-	SetConsoleTitle(L"Ã∞≥‘…ﬂ1.0");
+	SetConsoleTitle(L"Greedy snake1.0");
 	cur.coord.X = 255;
 	cur.coord.Y = 80;
 	SetConsoleScreenBufferSize(cur.hout, cur.coord);
@@ -53,7 +53,7 @@ int main()
 	th2.join();
 
 	cur.SetCursor(94, 45);
-	cout << "µ√∑÷Œ™£∫" << Wall.socre << endl;
+	cout << "Score£∫" << Wall.socre << endl;
 	cur.SetCursor(0, 47);
 
 
