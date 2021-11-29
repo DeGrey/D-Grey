@@ -159,7 +159,7 @@ void snake::grow(Surface &sf,int L_dif,int C_dif)
 	{
 		if (sf.socre >= 35)
 		{
-			speed -= 3;
+			speed -= 2;
 			if (speed <= 0)speed = 0;
 		}
 		else
