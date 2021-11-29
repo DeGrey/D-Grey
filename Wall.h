@@ -1,7 +1,6 @@
 #pragma once
 #include<iostream>
 #include<Windows.h>
-//#include"snake.h"
 #include<thread>
 
 using namespace std;

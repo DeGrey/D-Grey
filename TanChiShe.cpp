@@ -43,7 +43,6 @@ void food_prod()
 int main()
 {
 	char con; 
-	//Cursor cur;
 
 	SetConsoleTitle(L"Greedy snake1.0");
 	cur.coord.X = 255;
