@@ -159,7 +159,7 @@ void snake::grow(Surface &sf,int L_dif,int C_dif)
 	{
 		if (sf.socre >= 35)
 		{
-			speed -= 2;
+			speed -= 1;
 			if (speed <= 0)speed = 0;
 		}
 		else
@@ -212,25 +212,24 @@ void snake::changedir(char key)
 
 void food::production(Surface &sf,snake s)
 {
-	srand((unsigned int)time(NULL));
+	srand((unsigned int)time(NULL)); 
 	int line = rand();
 	int col = rand();
 	Cursor cur;
 	int a = line % 41;
 	int b = col % 41;
 	int real_b = b * 2;
+
+	WaitForSingleObject(sf.g_hMutex, INFINITE);
 	char s1 = sf.getsd(a, b);
-	char s2 = sf.getsd(s.rear->line-3, s.rear->col-55);
 	if (s1 != '=' && s1 != '@' && s1 != '*' && (a != s.rear->line-3 || b != s.rear->col-55))
 	{ 
-		WaitForSingleObject(sf.g_hMutex, INFINITE);
 		cur.SetCursor(real_b+55, a+3);
 		sf.setsd(a, b, '$');
 		cout << '$';
-		ReleaseMutex(sf.g_hMutex);
-
 		sf.havefood = true;
-
 	}
+	ReleaseMutex(sf.g_hMutex);
+
 	return;
 }
