@@ -5,8 +5,22 @@
 #include<conio.h>
 #include"food.h"
 Surface Wall;
+Cursor cur;
 snake s;
 food f;
+
+void hideCursor()
+{
+	while (s.isAlive)
+	{
+		GetConsoleCursorInfo(cur.hout, &cur.cci);
+		if (cur.cci.bVisible != 0)
+		{
+			cur.cci.bVisible = 0;
+			SetConsoleCursorInfo(cur.hout, &cur.cci);
+		}
+	}
+}
 
 void startmove()
 {
@@ -29,7 +43,7 @@ void food_prod()
 int main()
 {
 	char con; 
-	Cursor cur;
+	//Cursor cur;
 
 	SetConsoleTitle(L"Greedy snake1.0");
 	cur.coord.X = 255;
@@ -39,9 +53,12 @@ int main()
 	Wall.IniWall(cur);
 	cur.SetCursor(0, 0);
 
+	thread th0(hideCursor);
+
 	con = _getch();
 	thread th1(startmove);
 	thread th2(food_prod);
+
 
 	do
 	{
@@ -49,6 +66,7 @@ int main()
 		s.changedir(con);
 	} while (s.isAlive);
 
+	th0.join();
 	th1.join();
 	th2.join();
 

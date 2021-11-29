@@ -51,9 +51,9 @@ Cursor::Cursor()
 {
 	hout = GetStdHandle(STD_OUTPUT_HANDLE);
 	GetConsoleScreenBufferInfo(hout, &csbi);
-	cci.bVisible = 0;
-	cci.dwSize = 1;
-	SetConsoleCursorInfo(hout, &cci);
+	//cci.bVisible = 0;
+	//cci.dwSize = 1;
+	//SetConsoleCursorInfo(hout, &cci);
 
 }
 
