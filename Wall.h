@@ -31,7 +31,7 @@ private:
 public:
 	int socre=0;
 	bool havefood = false;
-	HANDLE g_hMutex;
+	HANDLE g_hMutex, g_hMutex1;
 
 	Surface();
 	void IniWall(Cursor cur);

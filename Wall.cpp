@@ -3,6 +3,8 @@
 Surface::Surface()
 {
 	g_hMutex = CreateMutex(NULL, FALSE, NULL);
+	g_hMutex1 = CreateMutex(NULL, FALSE, NULL);
+
 	for (int i = 0; i < 41; i++)
 	{
 		for (int k = 0; k < 41; k++)

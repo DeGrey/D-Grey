@@ -32,11 +32,11 @@ snake::snake()
 
 }
 
-void snake::move(Surface& sf)
+void snake::move(Surface& sf, Cursor cur,bool ismove)
 {
-	Cursor cur;
-	while (isAlive)
+	do
 	{
+		//WaitForSingleObject(sf.g_hMutex1, INFINITE);
 
 		int L_dif = rear->line - rear->front->line;
 		int C_dif = rear->col - rear->front->col;
@@ -109,8 +109,11 @@ void snake::move(Surface& sf)
 				ReleaseMutex(sf.g_hMutex);
 			}
 		}
+
 		Sleep(speed);
-	}
+		//ReleaseMutex(sf.g_hMutex1);
+
+	} while (ismove);
 }
 
 void snake::grow(Surface &sf,int L_dif,int C_dif)
@@ -172,7 +175,7 @@ void snake::grow(Surface &sf,int L_dif,int C_dif)
 }
 
 
-void snake::changedir(char key)
+void snake::changedir(Surface& sf, char key, Cursor cur)
 {
 	switch (key)
 	{
@@ -180,6 +183,7 @@ void snake::changedir(char key)
 	{
 		if (direction == 'd')break;
 		direction = 'a';
+		
 		break;
 	}
 	case 'd':
@@ -208,6 +212,7 @@ void snake::changedir(char key)
 	default:
 		break;
 	}
+	//move(sf, cur, false);
 }
 
 void food::production(Surface &sf,snake s)
