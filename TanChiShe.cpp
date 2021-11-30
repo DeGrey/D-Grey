@@ -24,7 +24,7 @@ void hideCursor()
 
 void startmove()
 {
-	s.move(Wall);
+	s.move(Wall,cur);
 	return;
 }
 
@@ -62,7 +62,8 @@ int main()
 	do
 	{
 		con = _getch();
-		s.changedir(con);
+		
+		s.changedir(Wall,con,cur);
 	} while (s.isAlive);
 
 	th0.join();

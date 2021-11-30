@@ -32,9 +32,9 @@ snake::snake()
 
 }
 
-void snake::move(Surface& sf)
+void snake::move(Surface& sf, Cursor cur)
 {
-	Cursor cur;
+	//Cursor cur;
 	while (isAlive)
 	{
 
@@ -172,7 +172,7 @@ void snake::grow(Surface &sf,int L_dif,int C_dif)
 }
 
 
-void snake::changedir(char key)
+void snake::changedir(Surface &sf,char key, Cursor cur)
 {
 	switch (key)
 	{
@@ -180,6 +180,7 @@ void snake::changedir(char key)
 	{
 		if (direction == 'd')break;
 		direction = 'a';
+		
 		break;
 	}
 	case 'd':

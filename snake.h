@@ -13,7 +13,7 @@ public:
 
 	snake();
 
-	void changedir(char);
-	void move(Surface&);
+	void changedir(Surface& sf, char, Cursor);
+	void move(Surface&, Cursor);
 	void grow(Surface &sf,int,int);
 };
