@@ -113,7 +113,7 @@ void snake::move(Surface& sf, Cursor cur,bool ismove)
 		Sleep(speed);
 		//ReleaseMutex(sf.g_hMutex1);
 
-	} while (ismove);
+	} while (isAlive);
 }
 
 void snake::grow(Surface &sf,int L_dif,int C_dif)
